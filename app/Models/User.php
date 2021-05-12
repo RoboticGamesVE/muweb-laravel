@@ -13,15 +13,40 @@ class User extends Authenticatable
 
     protected $table = 'memb_info';
 
+    public $timestamps = false;
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'memb_guid';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'memb___id',
+        'mail_addr',
+        'memb__pwd',
+        'memb_name',
+        'sno__numb',
+        'bloc_code',
+        'ctl1_code',
+        'mail_chek',
+        'appl_days',
+        'modi_days',
+        'out__days',
+        'true_days',
+        'SecretQuestion',
+        'SecretAnswer',
+        'Country',
+        'Gender',
+        'confirmed',
+        'activation_id'
+
     ];
 
     /**
@@ -30,7 +55,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'memb__pwd',
         'remember_token',
     ];
 
