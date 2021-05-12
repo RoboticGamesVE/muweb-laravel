@@ -27,6 +27,15 @@ class HomeController extends Controller
     public function user()
     {
         $users = User::all();
+
+        $file = collect(glob(base_path('routes').'/*.php'))
+                ->each(function ($route) {
+                    $name = explode('/', $route);
+                    echo $name[1];
+                });
+
+        return response()->json($file);
+
         return view('user', compact('users'));
     }
 }

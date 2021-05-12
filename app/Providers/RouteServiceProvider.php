@@ -38,15 +38,101 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::prefix('api')
-                ->middleware('api')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/api.php'));
+            // rutas globales
+            $this->mapApiRoutes();
+            $this->mapWebRoutes();
 
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
+            // rutas modulos public/user
+            $this->mapModulesPublicRoutes();
+            $this->mapModulesUsersRoutes();
+
+            // rutas admin
+            $this->mapAdminWebRoutes();
+            $this->mapAdminModulesRoutes();
         });
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     */
+    protected function mapApiRoutes()
+    {
+        Route::prefix('api')
+                ->middleware('api')
+                ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "web" routes  for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     */
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+    }
+
+    /**
+     * Define the "web" routes modules public for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     */
+    protected function mapModulesPublicRoutes()
+    {
+        collect(glob(base_path('routes/modules/public/').'*.php'))
+            ->each(function ($route) {
+                $name = explode('/', $route);
+
+                Route::middleware('web')
+                    ->group(base_path('routes/modules/public/'.$name[3]));
+            });
+    }
+
+    /**
+     * Define the "web" routes modules users for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     */
+    protected function mapModulesUsersRoutes()
+    {
+        collect(glob(base_path('routes/modules/users/').'*.php'))
+            ->each(function ($route) {
+                $name = explode('/', $route);
+
+                Route::middleware('web')
+                    ->group(base_path('routes/modules/users/'.$name[3]));
+            });
+    }
+
+    /**
+     * Define the "web" routes admin for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     */
+    protected function mapAdminWebRoutes()
+    {
+        Route::middleware('web')
+            ->group(base_path('routes/admin/web.php'));
+    }
+
+    /**
+     * Define the "web" routes modules admin for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     */
+    protected function mapAdminModulesRoutes()
+    {
+        collect(glob(base_path('routes/admin/modules/').'*.php'))
+            ->each(function ($route) {
+                $name = explode('/', $route);
+
+                Route::middleware('web')
+                    ->group(base_path('routes/admin/modules/'.$name[3]));
+            });
     }
 
     /**
