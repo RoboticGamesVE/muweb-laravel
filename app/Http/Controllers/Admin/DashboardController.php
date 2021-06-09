@@ -18,4 +18,26 @@ class DashboardController extends Controller
 
         return view('admin.dashboard');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function table(Request $request)
+    {
+
+        return view('admin.modules.example.table');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function form(Request $request)
+    {
+
+        return view('admin.modules.example.form');
+    }
 }

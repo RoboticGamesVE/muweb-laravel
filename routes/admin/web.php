@@ -25,5 +25,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 		// Dashboard
 		Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+		Route::get('/table', [DashboardController::class, 'table'])->name('dashboard.table');
+		Route::get('/form', [DashboardController::class, 'form'])->name('dashboard.form');
 	});
 });
