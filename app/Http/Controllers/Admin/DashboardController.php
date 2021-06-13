@@ -40,4 +40,15 @@ class DashboardController extends Controller
 
         return view('admin.modules.example.form');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function form2(Request $request)
+    {
+
+        return view('admin.modules.example.form2');
+    }
 }
