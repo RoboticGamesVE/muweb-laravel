@@ -58,7 +58,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" id="website_url" class="form-control" name="website_url" value="{{$websiteSetting->website_url}}" placeholder="https://yoursite.com">
+                                                <input type="text" id="website_url" class="form-control" name="website_url" value="{{$websiteSetting->website_url}}" placeholder="https://yoursite.com" required="" />
                                             </div>
                                         </div>
                                         <p class="sub-title"></p>
@@ -71,7 +71,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" id="website_title" class="form-control" name="website_title" value="{{$websiteSetting->website_title}}" placeholder="Title">
+                                                <input type="text" id="website_title" class="form-control" name="website_title" value="{{$websiteSetting->website_title}}" placeholder="Title" required="" />
                                             </div>
                                         </div>
                                         <p class="sub-title"></p>
@@ -122,7 +122,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" id="crypt_key" class="form-control" name="crypt_key" value="{{$websiteSetting->crypt_key}}" placeholder="12345678">
+                                                <input type="text" id="crypt_key" class="form-control" name="crypt_key" value="{{$websiteSetting->crypt_key}}" placeholder="12345678" required="" />
                                             </div>
                                         </div>
                                         <p class="sub-title"></p>
@@ -135,7 +135,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" id="admin_nick" class="form-control" name="admin_nick" value="{{$websiteSetting->admin_nick}}" placeholder="username">
+                                                <input type="text" id="admin_nick" class="form-control" name="admin_nick" value="{{$websiteSetting->admin_nick}}" placeholder="username" required="" />
                                             </div>
                                         </div>
                                         <p class="sub-title"></p>
@@ -148,7 +148,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="email" id="admin_mail" class="form-control" name="admin_mail" value="{{$websiteSetting->admin_mail}}" placeholder="user@mail.com">
+                                                <input type="email" id="admin_mail" class="form-control" name="admin_mail" value="{{$websiteSetting->admin_mail}}" placeholder="user@mail.com" required="" />
                                             </div>
                                         </div>
                                         <p class="sub-title"></p>
