@@ -13,10 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            WebsiteSettingSeeder::class,
-            RegisterSettingSeeder::class,
-            HeadTagSeeder::class,
-        ]);
+        collect(glob(base_path('database/seeders') . '/*.php'))
+            ->each(fn ($file) => require_once $file);
     }
 }

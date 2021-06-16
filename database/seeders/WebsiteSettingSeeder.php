@@ -29,3 +29,8 @@ class WebsiteSettingSeeder extends Seeder
         WebsiteSetting::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    WebsiteSettingSeeder::class,
+]);

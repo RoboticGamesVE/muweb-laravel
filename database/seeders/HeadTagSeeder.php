@@ -22,3 +22,8 @@ class HeadTagSeeder extends Seeder
         HeadTag::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    HeadTagSeeder::class,
+]);

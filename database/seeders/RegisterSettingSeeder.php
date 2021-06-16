@@ -24,3 +24,8 @@ class RegisterSettingSeeder extends Seeder
         RegisterSetting::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    RegisterSettingSeeder::class,
+]);
