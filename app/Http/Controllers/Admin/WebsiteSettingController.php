@@ -17,8 +17,7 @@ class WebsiteSettingController extends Controller
     public function show()
     {
         $title = 'Website Settings';
-        $all = WebsiteSetting::all();
-        $websiteSetting = $all[0];
+        $websiteSetting = WebsiteSetting::first();
 
         return view('admin/modules/websitesettings/form', compact('websiteSetting','title'));
     }
@@ -41,7 +40,7 @@ class WebsiteSettingController extends Controller
             'id_template' => $request->id_template,
             'copyright' => $request->copyright,
         ];
-        WebsiteSetting::where('id', 1)->update($arg);
+        WebsiteSetting::first()->update($arg);
         return redirect()->route('website_settings.show');
     }
 }

@@ -15,6 +15,10 @@ class HeadTagSeeder extends Seeder
      */
     public function run()
     {
+        $item = HeadTag::first();
+        if ($item) {
+            return;
+        }
         $arg = [
             'keywords' => 'muonline, Mu Free, Mu Online, MuOnline, season, episode',
             'description' => 'Private MU Online server! A Friendly Community for MuOnline and Much More!',
@@ -22,3 +26,8 @@ class HeadTagSeeder extends Seeder
         HeadTag::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    HeadTagSeeder::class,
+]);

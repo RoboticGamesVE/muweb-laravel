@@ -18,8 +18,7 @@ class ContactSettingController extends Controller
     public function show()
     {
         $title = 'Contact Settings';
-        $all = ContactSetting::all();
-        $contactSetting = $all[0];
+        $contactSetting = ContactSetting::first();
 
         return view('admin/modules/contactsettings/form', compact('contactSetting','title'));
     }
@@ -37,7 +36,7 @@ class ContactSettingController extends Controller
             'email' => $request->email,
             'length' => $request->length,
         ];
-        ContactSetting::where('id', 1)->update($arg);
+        ContactSetting::first()->update($arg);
         return redirect()->route('contact_settings.show');
     }
 }

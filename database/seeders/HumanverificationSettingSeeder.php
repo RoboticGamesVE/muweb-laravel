@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-use App\Models\ContactSetting;
+use App\Models\HumanverificationSetting;
 
-class ContactSettingSeeder extends Seeder
+class HumanverificationSettingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,20 +15,18 @@ class ContactSettingSeeder extends Seeder
      */
     public function run()
     {
-        $item = ContactSetting::first();
+        $item = HumanverificationSetting::first();
         if ($item) {
             return;
         }
         $arg = [
             'method' => 1,
-            'email' => 'tuserver@email.com',
-            'length' => 500,
         ];
-        ContactSetting::create($arg);
+        HumanverificationSetting::create($arg);
     }
 }
 
 // auto invocar
 $this->call([
-    ContactSettingSeeder::class,
+    HumanverificationSettingSeeder::class,
 ]);
