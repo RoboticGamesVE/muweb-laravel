@@ -17,8 +17,7 @@ class RegisterSettingController extends Controller
     public function show()
     {
         $title = 'Register Settings';
-        $all = RegisterSetting::all();
-        $registerSetting = $all[0];
+        $registerSetting = RegisterSetting::first();
 
         return view('admin/modules/registersettings/form', compact('registerSetting','title'));
     }
@@ -37,7 +36,7 @@ class RegisterSettingController extends Controller
             'length_token' => $request->length_token,
             'default_token' => $request->default_token,
         ];
-        RegisterSetting::where('id', 1)->update($arg);
+        RegisterSetting::first()->update($arg);
         return redirect()->route('register_settings.show');
     }
 }
