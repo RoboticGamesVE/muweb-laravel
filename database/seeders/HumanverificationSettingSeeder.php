@@ -15,9 +15,18 @@ class HumanverificationSettingSeeder extends Seeder
      */
     public function run()
     {
+        $item = HumanverificationSetting::first();
+        if ($item) {
+            return;
+        }
         $arg = [
             'method' => 1,
         ];
         HumanverificationSetting::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    HumanverificationSettingSeeder::class,
+]);

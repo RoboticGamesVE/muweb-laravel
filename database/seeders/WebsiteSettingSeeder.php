@@ -15,6 +15,10 @@ class WebsiteSettingSeeder extends Seeder
      */
     public function run()
     {
+        $item = WebsiteSetting::first();
+        if ($item) {
+            return;
+        }
         $arg = [
             'website_url' => 'http://web.com',
             'website_title' => 'Title',
@@ -29,3 +33,8 @@ class WebsiteSettingSeeder extends Seeder
         WebsiteSetting::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    WebsiteSettingSeeder::class,
+]);

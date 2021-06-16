@@ -17,8 +17,7 @@ class HumanverificationSettingController extends Controller
     public function show()
     {
         $title = 'Human Verification Settings';
-        $all = HumanverificationSetting::all();
-        $humanverificationSetting = $all[0];
+        $humanverificationSetting = HumanverificationSetting::first();
 
         return view('admin/modules/humanverificationsettings/form', compact('humanverificationSetting','title'));
     }
@@ -34,7 +33,7 @@ class HumanverificationSettingController extends Controller
         $arg = [
             'method' => $request->method,
         ];
-        HumanverificationSetting::where('id', 1)->update($arg);
+        HumanverificationSetting::first()->update($arg);
         return redirect()->route('humanverification_settings.show');
     }
 }
