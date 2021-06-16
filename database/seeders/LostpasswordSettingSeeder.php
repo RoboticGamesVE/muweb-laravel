@@ -15,9 +15,18 @@ class LostpasswordSettingSeeder extends Seeder
      */
     public function run()
     {
+        $item = LostpasswordSetting::first();
+        if ($item) {
+            return;
+        }
         $arg = [
             'method_id' => 1,
         ];
         LostpasswordSetting::create($arg);
     }
 }
+
+// auto invocar
+$this->call([
+    LostpasswordSettingSeeder::class,
+]);

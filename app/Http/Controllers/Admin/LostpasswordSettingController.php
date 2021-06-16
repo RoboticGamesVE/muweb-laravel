@@ -17,8 +17,7 @@ class LostpasswordSettingController extends Controller
     public function show()
     {
         $title = 'Lost Password Settings';
-        $all = LostpasswordSetting::all();
-        $lostpasswordSetting = $all[0];
+        $lostpasswordSetting = LostpasswordSetting::first();
 
         return view('admin/modules/lostpasswordsettings/form', compact('lostpasswordSetting','title'));
     }
@@ -34,7 +33,7 @@ class LostpasswordSettingController extends Controller
         $arg = [
             'method_id' => $request->method_id,
         ];
-        LostpasswordSetting::where('id', 1)->update($arg);
+        LostpasswordSetting::first()->update($arg);
         return redirect()->route('lostpassword_settings.show');
     }
 }
