@@ -17,8 +17,7 @@ class HeadTagController extends Controller
     public function show()
     {
         $title = 'Head Tags';
-        $all = HeadTag::all();
-        $headTag = $all[0];
+        $headTag = HeadTag::first();
 
         return view('admin/modules/headtags/form', compact('headTag','title'));
     }
@@ -35,7 +34,7 @@ class HeadTagController extends Controller
             'keywords' => $request->keywords,
             'description' => $request->description,
         ];
-        HeadTag::where('id', 1)->update($arg);
+        HeadTag::first()->update($arg);
         return redirect()->route('head_tag.show');
     }
 }

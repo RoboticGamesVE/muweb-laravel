@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        collect(glob(base_path('database/seeders') . '/*.php'))
+        $allSeeders = glob(base_path('database/seeders') . '/*.php');
+        collect($allSeeders)
             ->each(fn ($file) => require_once $file);
     }
 }

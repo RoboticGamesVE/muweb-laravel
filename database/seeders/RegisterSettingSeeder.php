@@ -15,6 +15,10 @@ class RegisterSettingSeeder extends Seeder
      */
     public function run()
     {
+        $item = RegisterSetting::first();
+        if ($item) {
+            return;
+        }
         $arg = [
             'required_verify' => 0,
             'required_token' => 0,
