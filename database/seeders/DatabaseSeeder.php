@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             WebsiteSettingSeeder::class,
             RegisterSettingSeeder::class,
-            
             HumanverificationSettingSeeder::class,
+            HeadTagSeeder::class,
         ]);
     }
 }
