@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('/news', [NewController::class, 'store'])->name('news.store');
 		Route::get('/news/{id}', [NewController::class, 'show'])->name('news.show');
 		Route::post('/news/{id}', [NewController::class, 'update'])->name('news.update');
-		Route::delete('/news/delete/{id}', [NewController::class, 'destroy'])->name('news.destroy');
+		Route::delete('/news/{id}/delete', [NewController::class, 'destroy'])->name('news.destroy');
 		// your routes here
 	});
 });

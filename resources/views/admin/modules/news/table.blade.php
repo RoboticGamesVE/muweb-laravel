@@ -67,7 +67,7 @@
                                     <tbody>
                                     @foreach($news as $new)
                                         <tr>
-                                            <th scope="row">{{$new->count()}}</th>
+                                            <th scope="row">{{$new->id}}</th>
                                             <td>{{$new->title}}</td>
                                             <td>{{$new->short_title}}</td>
                                             <td>{{$new->content}}</td>
