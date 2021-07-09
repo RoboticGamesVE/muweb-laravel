@@ -64,7 +64,7 @@
                                     <tbody>
                                     @foreach($cronjobs as $cronjob)
                                         <tr>
-                                            <th scope="row">{{$cronjob->count()}}</th>
+                                            <th scope="row">{{$cronjob->id}}</th>
                                             <td>{{$cronjob->title}}</td>
                                             <td>{{$cronjob->time_set}} hours</td>
                                             <td>

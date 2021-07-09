@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('/cron_jobs', [CronJobController::class, 'store'])->name('cron_jobs.store');
 		Route::get('/cron_jobs/{id}', [CronJobController::class, 'show'])->name('cron_jobs.show');
 		Route::post('/cron_jobs/{id}', [CronJobController::class, 'update'])->name('cron_jobs.update');
-		Route::delete('/cron_jobs/delete/{id}', [CronJobController::class, 'destroy'])->name('cron_jobs.destroy');
+		Route::delete('/cron_jobs/{id}/delete', [CronJobController::class, 'destroy'])->name('cron_jobs.destroy');
 		// your routes here
 	});
 });
